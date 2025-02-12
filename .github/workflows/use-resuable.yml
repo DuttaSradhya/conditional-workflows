@@ -52,7 +52,7 @@ jobs:
                 path: dist
     deploy:
         needs: build
-        uses: .github/workflows/reusable.yml
+        uses: DuttaSradhya/conditional-workflows/.github/workflows/reusable.yml@master
     report:
         needs: deploy
         if: failure()
