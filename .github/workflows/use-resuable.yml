@@ -55,6 +55,14 @@ jobs:
         uses: DuttaSradhya/conditional-workflows/.github/workflows/reusable.yml@master
         with: 
           artifact-name: dist-files
+        # secrets:
+          # some-secret:
+    print-deploy-result:
+        needs: deploy
+        runs-on: ubuntu-latest
+        steps:
+          - name: Print deploy output
+            run: echo " ${{ needs.deploy.outputs }} "
     report:
         needs: deploy
         if: failure()
